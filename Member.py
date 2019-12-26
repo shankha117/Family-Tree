@@ -13,7 +13,7 @@ class Member(object):
         self.generation = None
 
 
-    def add_child(self, child_name, mother_name, sex:str):
+    def add_child(self, child_name, mother_name,sex: str):
         pass
 
     def add_father(self, father):
@@ -28,7 +28,7 @@ class Member(object):
     def add_husband(self, wife):
         pass
 
-    def add_generation(self, gen:int):
+    def add_generation(self, gen: int):
         pass
 
     def add_relations(self, relation):

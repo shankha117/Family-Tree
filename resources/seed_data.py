@@ -1,14 +1,16 @@
 
 # Initial family mappings based on the problem pdf
 
-family = [
-
+alpha = [
             # Alpha Gen
                 # new child
             {"name": "King Shan", "sex": "M", "mother": None, "partner":None},
                 # new marriage
             {"name": "Queen Anga", "sex": "F", "mother": None, "partner": "King Shan"},
+]
 
+
+family = [
             # 1st Gen
                 # new childs
             {"name": "Chit", "sex": "M", "mother": "Queen Anga", "partner":None},
