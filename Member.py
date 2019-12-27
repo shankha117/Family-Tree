@@ -1,6 +1,6 @@
 class Member(object):
 
-    def __init__(self, name, sex, mother=None, wife=None, husband=None):
+    def __init__(self, name, sex, mother=None, wife=None, husband=None, generation=None):
 
         self.name = name
         self.sex = sex
@@ -10,7 +10,7 @@ class Member(object):
         self.husband = husband
         self.sons = []
         self.daughters = []
-        self.generation = None
+        self.generation = generation
 
 
     def add_child(self, child_name, mother_name,sex: str):

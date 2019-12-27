@@ -1,7 +1,7 @@
 
 # Initial family mappings based on the problem pdf
 
-alpha = [
+alpha_data = [
             # Alpha Gen
                 # new child
             {"name": "King Shan", "sex": "M", "mother": None, "partner":None},
@@ -10,7 +10,7 @@ alpha = [
 ]
 
 
-family = [
+family_data = [
             # 1st Gen
                 # new childs
             {"name": "Chit", "sex": "M", "mother": "Queen Anga", "partner":None},
