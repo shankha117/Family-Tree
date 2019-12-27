@@ -1,51 +1,26 @@
 
+from Family import Family
+from Member import Member
 
-class Relation_edges(object):
+"""
+    This class handels all the relationship extractions form the family .
+"""
 
-    marriage = 1
-    child = 2
-
-
-    def __init__(self, relation=None, from_Node=None, to_Node=None, generation=None):
-
-        self.value = relation
-        self.from_node = from_Node
-        self.to_node = to_Node
-        self.generation = generation
+class Relation(object):
 
 
-    """
-    marriage relations are always -
-        
-        hunsband ---> wife
-        
-    """
-    def get_husband(self, relation):
+    vaild_relations = {"Paternal-Uncle":0,
+                       "Maternal-Uncle":1,
+                       "Paternal-Aunt":2,
+                       "Maternal-Aunt":3,
+                       "Sister-In-Law":4,
+                       "Son":5,
+                       "Daughter":6,
+                       "Siblings":7
+                       }
 
-        if relation.value == 1:
+def get_Paternal_Uncle(member:Member):
+    pass
 
-            return relation.from_node
-
-
-    def get_wife(self, relation):
-
-        if relation.value == 1:
-
-            return relation.to_node
-
-    """
-    child relations are always-
-        
-        mother --> child    
-    """
-    def get_son(self, relation):
-
-        if relation.value == 2:
-
-            return relation.to_node
-
-    def get_mother(self, relation):
-
-        if relation.value == 2:
-
-            return relation.from_node
+def Maternal_Uncle(member: Member):
+    pass

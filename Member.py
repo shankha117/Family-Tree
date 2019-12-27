@@ -1,10 +1,14 @@
+"""
+This class holds all the information about a family  member
+"""
+
 class Member(object):
 
-    def __init__(self, name, sex, mother=None, wife=None, husband=None, generation=None):
+    def __init__(self, name, sex, mother=None, father=None, wife=None, husband=None, generation=None):
 
         self.name = name
         self.sex = sex
-        # self.father = father
+        self.father = father
         self.mother = mother
         self.wife = wife
         self.husband = husband
@@ -12,25 +16,26 @@ class Member(object):
         self.daughters = []
         self.generation = generation
 
+    """
+    get attribute methods
+    """
+    def get_father(self):
 
-    def add_child(self, child_name, mother_name,sex: str):
-        pass
+        return self.father
 
-    def add_father(self, father):
-        self.father = father
+    def get_mother(self):
 
-    def add_mother(self, mother):
-         pass
+        return self.mother
 
-    def add_wife(self, husband):
-         pass
+    def get_wife(self):
+        return self.wife
 
-    def add_husband(self, wife):
-        pass
+    def get_husband(self):
+        return self.husband
 
-    def add_generation(self, gen: int):
-        pass
+    def get_sons(self):
+        return self.sons
 
-    def add_relations(self, relation):
-        pass
+    def get_daughters(self):
+        return self.daughters
 
