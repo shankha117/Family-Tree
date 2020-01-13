@@ -32,8 +32,8 @@ class MakeFamily(object):
                                                      outsider_sex=i['sex'],
                                                      family_member=i['partner'])
 
-        for key,val in Family()._family_members.items():
-            print(key, vars(val))
+
+
 
     def add_child(self, child_name: str, sex: str,mother_name: str,):
 
@@ -50,4 +50,4 @@ class MakeFamily(object):
             Family().add_marriage_to_family(outside_member_name=outsider_name, outside_member_sex=outsider_sex,
                                             family_member_instance=family_member_instancec)
 
-if __name__== "__main__": MakeFamily()
+# if __name__== "__main__": MakeFamily()

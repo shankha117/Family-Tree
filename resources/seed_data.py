@@ -41,7 +41,7 @@ family_data = [
             { "name": "Jaya", "sex": "M","mother": None, "partner": "Dritha"},
             { "name": "Arit", "sex": "M","mother": None, "partner": "Jnki"},
             { "name": "Satvy", "sex": "F","mother": None, "partner": "Asva"},
-            { "name": "Krpi", "sex": "M","mother": None, "partner": "Vyas"},
+            { "name": "Krpi", "sex": "F","mother": None, "partner": "Vyas"},
 
 
             # 3rd Gen
