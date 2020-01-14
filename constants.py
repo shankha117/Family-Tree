@@ -30,8 +30,9 @@ class Gender(Enum):
 
 
 class Module(Enum):
-    pass
+    executor = "Executor"
 
 
 class Class(Enum):
-    pass
+    add = "AddChild"
+    get = "GetRelation"

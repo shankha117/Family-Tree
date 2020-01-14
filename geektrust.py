@@ -2,7 +2,7 @@
 import os
 import sys
 from Make_Family import MakeFamily
-from Executer import Execute
+from Executor import Execute
 from Family import Family
 import traceback
 
@@ -40,7 +40,7 @@ class EntryPoint(object):
             file.close()
 
             # split the file
-            self.operations = file_strings.split("\n")[:-1]
+            self.operations = file_strings.split("\n")[:]
 
         except Exception as e:
             print(traceback.format_exc(str(e)))
@@ -49,6 +49,7 @@ class EntryPoint(object):
 
         try:
             for i in self.operations:
+
                 Execute(i).start()
 
         except Exception as e:
