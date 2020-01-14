@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
+
+from Family import Family
 from helper import get_command_and_entity, get_class_object
-from constants import Operations, Relations, Module, Class
+from constants import Operations, Relations, Module, Class, Methods
 
 
 class Execute(object):
@@ -43,26 +45,51 @@ class AddChild(AbstractExecutor, ABC):
     def start(self, entity_list):
         mother = entity_list[0]
 
-        super(self.__class__, self).get_main_entity(mother)
+        # super(self.__class__, self).get_main_entity(mother)
 
         child = entity_list[1]
 
         gender = entity_list[2]
 
+        self.perform_task(mother, child, gender)
+
     def perform_task(self, main_entity, *args):
-        print("--hii")
+        res = Family().add_child_to_family(child=args[0], sex=args[1], mother=main_entity)
+
+        print(res['message'])
 
 
 class GetRelation(AbstractExecutor, ABC):
 
+    def __init__(self):
+
+        self._mappings = {
+            Relations.son.value: {"method": Methods.son.value},
+
+            Relations.pu.value: {"class": Class.get.value},
+            Relations.mu.value: {},
+            Relations.pa.value: {},
+            Relations.ma.value: {},
+            Relations.sil.value: {},
+            Relations.bil.value: {},
+            Relations.s.value: {},
+            Relations.d.value: {}
+        }
+
     def start(self, entity_list):
-        mother = entity_list[0]
+        member = entity_list[0]
+        # super(self.__class__, self).get_main_entity(member)
+        if not Family().find_member_by_name(member):
+            print("PERSON_NOT_FOUND")
+        else:
+            relation = entity_list[1]
 
-        super(self.__class__, self).get_main_entity(mother)
-
-        # child = entity_list[1]
-        #
-        # gender = entity_list[2]
+            self.perform_task(member, relation)
 
     def perform_task(self, main_entity, *args):
-        print("--hii")
+
+        member_object = Family().find_member_by_name(main_entity)
+
+        member_object.__getattribute__(self._mappings[args[0]]['method'])()
+
+

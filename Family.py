@@ -55,7 +55,7 @@ class Family(Borg):
                 # add parent for the child
                 self.add_parent_for_child(child=new_child, Mother=mother_instance, Father=mother_instance.husband)
 
-                self._message['message'] = "CHILD ADDITION SUCCESSFUL"
+                self._message['message'] = "CHILD_ADDITION_SUCCEEDED"
 
             else:
                 # make the new child instance
@@ -65,7 +65,7 @@ class Family(Borg):
                 # add the new child to the family
                 self.add_family_member(new_child.name, new_child)
 
-                self._message = "CHILD ADDITION SUCCESSFUL"
+                self._message = "CHILD_ADDITION_SUCCEEDED"
 
         return self._message
 

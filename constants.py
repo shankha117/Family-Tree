@@ -36,3 +36,15 @@ class Module(Enum):
 class Class(Enum):
     add = "AddChild"
     get = "GetRelation"
+
+
+class Methods(Enum):
+    pu = 'Paternal-Uncle'
+    mu = 'Maternal-Uncle'
+    pa = 'Paternal-Aunt'
+    ma = 'Maternal-Aunt'
+    sil = 'Sister-In-Law'
+    bil = 'Brother-In-Law'
+    son = 'get_sons'
+    d = 'get_daughters'
+    s = 'get_siblings'

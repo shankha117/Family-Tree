@@ -32,9 +32,6 @@ class MakeFamily(object):
                                                      outsider_sex=i['sex'],
                                                      family_member=i['partner'])
 
-
-
-
     def add_child(self, child_name: str, sex: str,mother_name: str,):
 
 

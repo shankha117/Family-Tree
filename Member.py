@@ -19,23 +19,71 @@ class Member(object):
     """
     get attribute methods
     """
-    def get_father(self):
 
-        return self.father
+    def get_father(self):
+        if self.father:
+            print(self.father.name)
+        else:
+            print(None)
 
     def get_mother(self):
-
-        return self.mother
+        if self.mother:
+            return self.mother.name
+        else:
+            return None
 
     def get_wife(self):
-        return self.wife
+        if self.wife:
+            return self.wife.name
+        else:
+            return None
 
     def get_husband(self):
-        return self.husband
+        if self.husband:
+            return self.husband
+        else:
+            print(None)
 
     def get_sons(self):
-        return self.sons
+        if self.sons:
+            # print the output in required fashion
+            for i in self.sons:
+                print(i.name, end=" ")
+            print("")
+        else:
+            print(None)
 
     def get_daughters(self):
-        return self.daughters
+        if self.daughters:
+            # print the output in required fashion
+            for i in self.daughters:
+                print(i.name, end=" ")
+            print("")
+        else:
+            print(None)
 
+    def get_paternal_uncle(self):
+
+        # if self.father:
+        #     if self.father.
+        pass
+
+    def get_maternal_uncle(self):
+        pass
+
+
+    def get_siblings(self):
+
+        if self.mother:
+            siblings = []
+
+
+
+    def get_brothers(self):
+        if self.mother.sons:
+            return self.mother.sons
+
+
+    def get_sisters(self):
+        if self.mother.daughters:
+            return self.mother.daughters
