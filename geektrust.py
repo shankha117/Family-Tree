@@ -1,9 +1,11 @@
 # This is the EntryPoint
+import os
 import sys
 from Make_Family import MakeFamily
 from Executer import Execute
 from Family import Family
 import traceback
+
 
 class EntryPoint(object):
 
@@ -52,6 +54,7 @@ class EntryPoint(object):
         except Exception as e:
             print(traceback.format_exc(str(e)))
 
+
 if __name__ == "__main__":
 
     if len(sys.argv) != 2:
@@ -59,4 +62,5 @@ if __name__ == "__main__":
             """the input format is ----
         python -m geektrust <absolute path to the input file>""")
 
+    os.system('toilet -f ivrit "Family Tree!" | boxes -d cat -a hc -p h8 | lolcat')
     EntryPoint(sys.argv[1])
