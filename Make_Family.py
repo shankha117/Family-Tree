@@ -1,5 +1,6 @@
 from Family import Family
-from resources.seed_data import family_data,alpha_data
+from resources.seed_data import family_data, alpha_data
+
 
 class MakeFamily(object):
 
@@ -19,7 +20,6 @@ class MakeFamily(object):
                                              outsider_sex=alpha_data[1]['sex'],
                                              family_member=alpha_data[1]['partner'])
 
-
         for i in family_data:
 
             if i['mother']:
@@ -32,18 +32,17 @@ class MakeFamily(object):
                                                      outsider_sex=i['sex'],
                                                      family_member=i['partner'])
 
-    def add_child(self, child_name: str, sex: str,mother_name: str,):
+    @staticmethod
+    def add_child(child_name: str, sex: str, mother_name: str, ):
 
+        Family().add_child_to_family(child=child_name, sex=sex, mother=mother_name)
 
-        Family().add_child_to_family(child=child_name,sex= sex, mother=mother_name)
-
-
-    def add_marriage_with_family_member(self, outsider_name:str,outsider_sex:str,family_member:str):
+    @staticmethod
+    def add_marriage_with_family_member(outsider_name: str, outsider_sex: str, family_member: str):
 
         family_member_instancec = Family().find_member_by_name(family_member)
 
         if family_member_instancec:
-
             Family().add_marriage_to_family(outside_member_name=outsider_name, outside_member_sex=outsider_sex,
                                             family_member_instance=family_member_instancec)
 

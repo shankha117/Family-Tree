@@ -1,2 +1,13 @@
 ADD_CHILD Satya Ketu Male
 GET_RELATIONSHIP Satya Son
+GET_RELATIONSHIP Chitra Siblings
+GET_RELATIONSHIP Amba Daughter
+GET_RELATIONSHIP Tritha Daughter
+GET_RELATIONSHIP Vasa Paternal-Uncle
+GET_RELATIONSHIP Tritha Paternal-Uncle
+GET_RELATIONSHIP Yodhan Paternal-Uncle
+GET_RELATIONSHIP Yodhan Maternal-Uncle
+GET_RELATIONSHIP Vasa Paternal-Aunt
+GET_RELATIONSHIP Yodhan Paternal-Aunt
+GET_RELATIONSHIP Yodhan Maternal-Aunt
+GET_RELATIONSHIP Laki Maternal-Aunt

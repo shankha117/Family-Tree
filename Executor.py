@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 from Family import Family
 from helper import get_command_and_entity, get_class_object
-from constants import Operations, Relations, Module, Class, Methods
+from constants import Operations, Relations, Module, Class, Methods, Gender
 
 
 class Execute(object):
@@ -54,7 +54,7 @@ class AddChild(AbstractExecutor, ABC):
         self.perform_task(mother, child, gender)
 
     def perform_task(self, main_entity, *args):
-        res = Family().add_child_to_family(child=args[0], sex=args[1], mother=main_entity)
+        res = Family().add_child_to_family(child=args[0], sex=getattr(Gender, args[1]).value, mother=main_entity)
 
         print(res['message'])
 
@@ -66,19 +66,20 @@ class GetRelation(AbstractExecutor, ABC):
         self._mappings = {
             Relations.son.value: {"method": Methods.son.value},
 
-            Relations.pu.value: {"class": Class.get.value},
-            Relations.mu.value: {},
-            Relations.pa.value: {},
-            Relations.ma.value: {},
-            Relations.sil.value: {},
-            Relations.bil.value: {},
-            Relations.s.value: {},
-            Relations.d.value: {}
+            Relations.pu.value: {"method": Methods.pu.value},
+            Relations.mu.value: {"method": Methods.mu.value},
+            Relations.pa.value: {"method": Methods.pa.value},
+            Relations.ma.value: {"method": Methods.ma.value},
+            Relations.sil.value: {"method": Methods.sil.value},
+            Relations.bil.value: {"method": Methods.bil.value},
+            Relations.s.value: {"method": Methods.s.value},
+            Relations.d.value: {"method": Methods.d.value}
         }
 
     def start(self, entity_list):
         member = entity_list[0]
         # super(self.__class__, self).get_main_entity(member)
+
         if not Family().find_member_by_name(member):
             print("PERSON_NOT_FOUND")
         else:
@@ -89,7 +90,4 @@ class GetRelation(AbstractExecutor, ABC):
     def perform_task(self, main_entity, *args):
 
         member_object = Family().find_member_by_name(main_entity)
-
         member_object.__getattribute__(self._mappings[args[0]]['method'])()
-
-

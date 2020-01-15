@@ -42,6 +42,7 @@ class Family(Borg):
         else:
             if mother_instance.sex != "F":
                 self._message['message'] = "CHILD_ADDITION_FAILED"
+                return self._message
 
             # if the child has father
             if mother_instance.husband:

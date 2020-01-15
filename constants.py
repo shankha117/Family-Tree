@@ -25,8 +25,8 @@ class Relations(Enum):
 
 
 class Gender(Enum):
-    f = 'Female'
-    m = 'Male'
+    Female = 'F'
+    Male = 'M'
 
 
 class Module(Enum):
@@ -39,12 +39,12 @@ class Class(Enum):
 
 
 class Methods(Enum):
-    pu = 'Paternal-Uncle'
-    mu = 'Maternal-Uncle'
-    pa = 'Paternal-Aunt'
-    ma = 'Maternal-Aunt'
-    sil = 'Sister-In-Law'
-    bil = 'Brother-In-Law'
+    pu = 'get_paternal_uncle'
+    mu = 'get_maternal_uncle'
+    pa = 'get_paternal_aunt'
+    ma = 'get_maternal_aunt'
+    sil = 'get_sister_in_law'
+    bil = 'get_brother_in_law'
     son = 'get_sons'
     d = 'get_daughters'
     s = 'get_siblings'
