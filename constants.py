@@ -30,7 +30,7 @@ class Gender(Enum):
 
 
 class Module(Enum):
-    executor = "Executor"
+    executor = "executor"
 
 
 class Class(Enum):

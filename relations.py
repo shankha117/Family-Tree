@@ -1,6 +1,6 @@
 
-from Family import Family
-from Member import Member
+from family import Family
+from member import Member
 
 """
     This class handels all the relationship extractions form the family .

@@ -1,4 +1,4 @@
-from Family import Family
+from family import Family
 from resources.seed_data import family_data, alpha_data
 
 

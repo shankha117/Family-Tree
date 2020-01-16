@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from Family import Family
+from family import Family
 from helper import get_command_and_entity, get_class_object
 from constants import Operations, Relations, Module, Class, Methods, Gender
 

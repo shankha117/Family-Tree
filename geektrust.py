@@ -1,9 +1,9 @@
 # This is the EntryPoint
 import os
 import sys
-from Make_Family import MakeFamily
-from Executor import Execute
-from Family import Family
+from make_family import MakeFamily
+from executor import Execute
+from family import Family
 import traceback
 
 
@@ -40,7 +40,7 @@ class EntryPoint(object):
             file.close()
 
             # split the file
-            self.operations = file_strings.split("\n")[:]
+            self.operations = file_strings.split("\n")
 
         except Exception as e:
             print(traceback.format_exc(str(e)))
@@ -49,8 +49,8 @@ class EntryPoint(object):
 
         try:
             for i in self.operations:
-
-                Execute(i).start()
+                if i:
+                    Execute(i).start()
 
         except Exception as e:
             print(traceback.format_exc(str(e)))
@@ -63,5 +63,5 @@ if __name__ == "__main__":
             """the input format is ----
         python -m geektrust <absolute path to the input file>""")
 
-    os.system('toilet -f ivrit "Family Tree!" | boxes -d cat -a hc -p h8 | lolcat')
+    # os.system('toilet -f ivrit "Family Tree!" | boxes -d cat -a hc -p h8 | lolcat')
     EntryPoint(sys.argv[1])

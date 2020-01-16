@@ -11,3 +11,4 @@ GET_RELATIONSHIP Vasa Paternal-Aunt
 GET_RELATIONSHIP Yodhan Paternal-Aunt
 GET_RELATIONSHIP Yodhan Maternal-Aunt
 GET_RELATIONSHIP Laki Maternal-Aunt
+GET_RELATIONSHIP Atya Sister-In-Law

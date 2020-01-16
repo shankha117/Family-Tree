@@ -1,4 +1,4 @@
-from Member import Member
+from member import Member
 
 
 # this class handles the single instance of the family class
@@ -11,6 +11,10 @@ class Borg:
     def __init__(self):
         self.__dict__ = self._family_members
         self.__dict__ = self._message
+
+    @property
+    def family_members(self):
+        return self._family_members
 
 
 """

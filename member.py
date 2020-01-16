@@ -1,6 +1,7 @@
 """
 This class holds all the information about a family  member
 """
+from constants import Gender
 
 
 class Member(object):
@@ -20,6 +21,12 @@ class Member(object):
     """
     get attribute methods
     """
+
+    @staticmethod
+    def print_list(data):
+        for i in data:
+            print(i.name, end=" ")
+        print("")
 
     def get_father(self):
         if self.father:
@@ -48,9 +55,10 @@ class Member(object):
     def get_sons(self):
         if self.sons:
             # print the output in required fashion
-            for i in self.sons:
-                print(i.name, end=" ")
-            print("")
+            self.print_list(self.sons)
+            # for i in self.sons:
+            #     print(i.name, end=" ")
+            # print("")
         else:
             print(None)
 
@@ -63,7 +71,7 @@ class Member(object):
         else:
             print(None)
 
-    def get_siblings(self):
+    def find_siblings(self):
         if self.get_mother():
             # make the siblings list with all brothers and sisters from the same mother
             # as all mother-child connection is guaranteed
@@ -72,11 +80,15 @@ class Member(object):
             # remove itself from the list
             siblings.remove(self)
             if siblings:
-                for i in siblings:
-                    print(i.name, end=" ")
-                print("")
-                return
-        print(None)
+                return siblings
+        return None
+
+    def get_siblings(self):
+        siblings = self.find_siblings()
+        if siblings:
+            self.print_list(siblings)
+        else:
+            print(siblings)
 
     def get_brothers(self):
         if self.mother:
@@ -92,15 +104,13 @@ class Member(object):
             # we need to make sure father is a actual member of the family
             if self.father.get_mother():
                 # get fathers brothers
-                paternal_uncles = self.father.get_brothers()
+                paternal_uncles = self.father.get_brothers()[:]
 
                 # exclude father from paternal uncles
                 paternal_uncles.remove(self.father)
 
                 if paternal_uncles:
-                    for i in paternal_uncles:
-                        print(i.name, end=" ")
-                    print("")
+                    self.print_list(paternal_uncles)
                     return
         print(None)
 
@@ -110,12 +120,10 @@ class Member(object):
             # we need to make sure father is a actual member of the family
             if self.father.get_mother():
                 # get fathers sisters
-                paternal_aunt = self.father.get_sisters()
+                paternal_aunt = self.father.get_sisters()[:]
 
                 if paternal_aunt:
-                    for i in paternal_aunt:
-                        print(i.name, end=" ")
-                    print("")
+                    self.print_list(paternal_aunt)
                     return
         print(None)
 
@@ -125,11 +133,9 @@ class Member(object):
             # we need to make sure father is a actual member of the family
             if self.mother.get_mother():
                 # get mothers brothers
-                maternal_uncle = self.mother.get_brothers()
+                maternal_uncle = self.mother.get_brothers()[:]
                 if maternal_uncle:
-                    for i in maternal_uncle:
-                        print(i.name, end=" ")
-                    print("")
+                    self.print_list(maternal_uncle)
                     return
         print(None)
 
@@ -139,21 +145,76 @@ class Member(object):
             # we need to make sure father is a actual member of the family
             if self.mother.get_mother():
                 # get mothers sisters
-                maternal_aunt = self.mother.get_sisters()
+                maternal_aunt = self.mother.get_sisters()[:]
 
                 # exclude mother from maternal aunts
                 maternal_aunt.remove(self.mother)
 
                 if maternal_aunt:
-                    for i in maternal_aunt:
-                        print(i.name, end=" ")
-                    print("")
+                    self.print_list(maternal_aunt)
                     return
         print(None)
 
     def get_sister_in_law(self):
-
-        pass
+        res = self.get_spouse_sisters() + list(i for i in self.get_wives_of_siblings() if i)
+        self.print_list(res)
 
     def get_brother_in_law(self):
-        pass
+        res = self.get_spouse_brothers() + list(i for i in self.get_husband_of_siblings() if i)
+        self.print_list(res)
+
+    def get_spouse_sisters(self):
+
+        # if member is male
+        if self.sex == Gender.Male.value:
+            if self.wife:
+                return self.wife.get_sisters()
+                # return list(i.name for i in self.wife.get_sisters())
+
+            return []
+
+        # is member is female
+        else:
+            if self.husband:
+                return self.husband.get_sisters()
+                # return list(i.name for i in self.husband.get_sisters())
+
+            return []
+
+    def get_spouse_brothers(self):
+
+        # if member is male
+        if self.sex == Gender.Male.value:
+            if self.wife:
+                return self.wife.get_brothers()
+                # return list(i.name for i in self.wife.get_brothers())
+
+            return []
+
+        # is member is female
+        else:
+            if self.husband:
+                return self.husband.get_brothers()
+                # return list(i.name for i in self.husband.get_brothers())
+
+            return []
+
+    def get_wives_of_siblings(self):
+
+        try:
+            for i in self.find_siblings():
+                if i.wife:
+                    yield i.wife
+
+        except Exception as e:
+            yield
+
+    def get_husband_of_siblings(self):
+
+        try:
+            for i in self.find_siblings():
+                if i.husband:
+                    yield i.husband
+
+        except Exception as e:
+            yield
