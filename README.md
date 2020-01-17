@@ -11,11 +11,16 @@ All the metadata (name , gender) of every entity is kept as it is given .
 
 # **`Available Operation`**
 
-* Given a _name_ and a _relationship_, output the people corresponding to the relationship in the order in
+* ***GET_RELATIONSHIP*** :: Given a _name_ and a _relationship_, output the people corresponding to the relationship in the order in
 which they were added to the family tree. *Assume the names of the family members are unique*.
 
-* add a child to any family in the tree through the **mother**.
+     `**Formart** : GET_RELATIONSHIP ”Name” “Relationship”`
 
+* ***ADD_CHILD*** :: add a child to any family in the tree through the **mother**.
+        
+        `**Formart** : GET_RELATIONSHIP ”Name” “Relationship”`
+        
+        Formart** : GET_RELATIONSHIP ”Name” “Relationship”
 * example
 
     :zap:ADD_CHILD Satya Ketu Male
@@ -28,3 +33,9 @@ which they were added to the family tree. *Assume the names of the family member
     
     :zap: GET_RELATIONSHIP Atya Sister-In-Law
 
+
+# :rocket:&nbsp;**`Run Project`**
+
+* input format is as below - 
+
+    `python -m geektrust <absolute_path_to_input_file>`
