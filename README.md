@@ -16,10 +16,9 @@ which they were added to the family tree. `Assume the names of the family member
 * example
 
 ```diff
-ADD_CHILD Satya Ketu Male
-GET_RELATIONSHIP Chitra Siblings
-GET_RELATIONSHIP Amba Daughter
-GET_RELATIONSHIP Yodhan Paternal-Uncle
-GET_RELATIONSHIP Atya Sister-In-Law
+:zap: ADD_CHILD Satya Ketu Male
+:zap: GET_RELATIONSHIP Chitra Siblings
+:zap: GET_RELATIONSHIP Amba Daughter
+:zap: GET_RELATIONSHIP Yodhan Paternal-Uncle
+:zap: GET_RELATIONSHIP Atya Sister-In-Law
    ``` 
-
