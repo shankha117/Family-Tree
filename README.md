@@ -8,10 +8,10 @@ All the metadata (name , gender) of every entity is kept as it is given .
 
 #**`Available Operation`**
 
-* Given a _name_ and a _relationship_, output the people corresponding to the relationship in the order in
+* :zap:Given a _name_ and a _relationship_, output the people corresponding to the relationship in the order in
 which they were added to the family tree. `Assume the names of the family members are unique.`
 
-* add a child to any family in the tree through the **mother**.
+* :zap:add a child to any family in the tree through the **mother**.
 
 * example
 
@@ -21,4 +21,4 @@ which they were added to the family tree. `Assume the names of the family member
 :zap: GET_RELATIONSHIP Amba Daughter
 :zap: GET_RELATIONSHIP Yodhan Paternal-Uncle
 :zap: GET_RELATIONSHIP Atya Sister-In-Law
-   ``` 
+``` 
